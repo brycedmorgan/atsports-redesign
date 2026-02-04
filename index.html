@@ -4,53 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AT Sports - Premium sports surface coatings and court solutions. Official court surface of the PPA Tour. Acrytech, CushionX, Faultline, and RollX products.">
-    
     <title>AT Sports | Premium Sports Surface Coatings & Court Solutions</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            /* ATSports Brand Colors */
-            --color-primary: #003366;
-            --color-secondary: #1e345e;
-            --color-accent: #003366;
-            --color-accent-hover: #004080;
-            --color-orange: #FF6900;
-            --color-blue: #003366;
-            --color-red: #C8102E;
-            --color-white: #ffffff;
-            --color-gray-100: #f8fafc;
-            --color-gray-200: #e2e8f0;
-            --color-gray-400: #94a3b8;
-            --color-gray-600: #475569;
-            --color-gray-800: #1e293b;
-            --font-display: 'Space Grotesk', sans-serif;
-            --font-body: 'DM Sans', sans-serif;
+            /* ATSports Official Brand Colors */
+            --navy: #1b335e;
+            --navy-dark: #0f1f3a;
+            --navy-light: #233354;
+            --red: #c8102e;
+            --red-dark: #a00d24;
+            --orange: #ff6900;
+            --white: #ffffff;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5;
+            --gray-600: #666666;
+            --gray-800: #333333;
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: var(--font-body);
-            background: var(--color-white);
-            color: var(--color-gray-800);
+            font-family: 'Open Sans', sans-serif;
+            color: var(--gray-800);
             line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
         }
         
         /* Header */
         header {
+            background: var(--navy);
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 100;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--color-gray-200);
+        }
+        
+        .top-bar {
+            background: var(--red);
+            padding: 0.5rem 2rem;
+            text-align: center;
+            color: var(--white);
+            font-size: 0.85rem;
+            font-weight: 600;
         }
         
         .header-inner {
@@ -62,62 +69,74 @@
             align-items: center;
         }
         
-        .logo {
-            font-family: var(--font-display);
-            font-size: 1.75rem;
-            font-weight: 400;
-            color: var(--color-primary);
-            text-decoration: none;
+        .logo img {
+            height: 50px;
         }
         
-        .logo span { color: var(--color-accent); }
-        
-        nav { display: flex; align-items: center; gap: 2rem; }
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
         
         nav a {
-            color: var(--color-gray-600);
+            color: var(--white);
             text-decoration: none;
-            font-weight: 500;
+            font-family: 'Oswald', sans-serif;
             font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             transition: color 0.2s;
         }
         
-        nav a:hover { color: var(--color-accent); }
+        nav a:hover { color: var(--orange); }
         
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
+            padding: 0.875rem 1.75rem;
+            font-family: 'Oswald', sans-serif;
             font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             text-decoration: none;
-            transition: all 0.2s;
-            cursor: pointer;
             border: none;
+            cursor: pointer;
+            transition: all 0.2s;
         }
         
-        .btn-primary {
-            background: var(--color-accent);
-            color: var(--color-white);
+        .btn-red {
+            background: var(--red);
+            color: var(--white);
         }
         
-        .btn-primary:hover { background: var(--color-accent-hover); }
+        .btn-red:hover { background: var(--red-dark); }
         
         .btn-outline {
             background: transparent;
-            border: 2px solid var(--color-gray-200);
-            color: var(--color-gray-800);
+            border: 2px solid var(--white);
+            color: var(--white);
         }
         
-        .btn-outline:hover { border-color: var(--color-accent); color: var(--color-accent); }
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--navy);
+        }
+        
+        .btn-navy {
+            background: var(--navy);
+            color: var(--white);
+        }
+        
+        .btn-navy:hover { background: var(--navy-dark); }
         
         /* Hero */
         .hero {
             padding: 10rem 2rem 6rem;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-            color: var(--color-white);
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
+            color: var(--white);
             position: relative;
             overflow: hidden;
         }
@@ -126,13 +145,28 @@
             content: '';
             position: absolute;
             top: 0;
+            left: 0;
             right: 0;
-            width: 60%;
-            height: 100%;
+            bottom: 0;
             background: url('https://atsports.com/wp-content/uploads/2025/04/AO_DRONE_SUNDAY-2-768x575.jpg') center/cover;
-            opacity: 0.2;
-            mask-image: linear-gradient(to left, black 0%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to left, black 0%, transparent 100%);
+            opacity: 0.15;
+        }
+        
+        /* Diagonal stripe pattern */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 10px,
+                rgba(200, 16, 46, 0.1) 10px,
+                rgba(200, 16, 46, 0.1) 20px
+            );
         }
         
         .hero-content {
@@ -150,33 +184,29 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
+            background: var(--red);
             padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
             margin-bottom: 1.5rem;
         }
         
-        .hero-badge img {
-            height: 20px;
-        }
-        
         .hero h1 {
-            font-family: var(--font-display);
             font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 400;
+            font-weight: 700;
             line-height: 1.1;
             margin-bottom: 1.5rem;
         }
         
         .hero h1 span {
-            color: var(--color-orange);
+            color: var(--red);
         }
         
         .hero p {
-            font-size: 1.25rem;
-            color: rgba(255,255,255,0.8);
+            font-size: 1.15rem;
+            opacity: 0.9;
             margin-bottom: 2rem;
             max-width: 500px;
         }
@@ -190,48 +220,56 @@
         .hero-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            background: rgba(255,255,255,0.05);
-            border-radius: 16px;
-            padding: 2rem;
-            border: 1px solid rgba(255,255,255,0.1);
+            gap: 1.5rem;
         }
         
         .hero-stat {
-            text-align: center;
+            background: rgba(255,255,255,0.1);
+            border-left: 4px solid var(--red);
+            padding: 1.5rem;
         }
         
         .hero-stat-value {
-            font-family: var(--font-display);
+            font-family: 'Oswald', sans-serif;
             font-size: 2.5rem;
-            color: var(--color-accent);
+            font-weight: 700;
+            color: var(--white);
         }
         
         .hero-stat-label {
             font-size: 0.85rem;
-            color: rgba(255,255,255,0.7);
-            margin-top: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 968px) {
+            .hero-content { grid-template-columns: 1fr; }
+            .hero-stats { grid-template-columns: repeat(3, 1fr); }
         }
         
         /* PPA Banner */
         .ppa-banner {
-            background: var(--color-red);
-            color: var(--color-white);
+            background: var(--red);
+            color: var(--white);
             padding: 1rem 2rem;
             text-align: center;
         }
         
         .ppa-banner p {
-            font-weight: 600;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.75rem;
         }
         
-        /* Section styles */
+        /* Section Styles */
         section {
-            padding: 6rem 2rem;
+            padding: 5rem 2rem;
         }
         
         .container {
@@ -244,158 +282,141 @@
             margin-bottom: 4rem;
         }
         
-        .section-badge {
+        .section-label {
             display: inline-block;
-            background: var(--color-accent);
-            color: var(--color-white);
-            padding: 0.25rem 1rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            background: var(--navy);
+            color: var(--white);
+            padding: 0.375rem 1rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
             margin-bottom: 1rem;
         }
         
         .section-title {
-            font-family: var(--font-display);
             font-size: 2.5rem;
-            color: var(--color-primary);
+            color: var(--navy);
             margin-bottom: 1rem;
         }
         
         .section-subtitle {
-            color: var(--color-gray-600);
             font-size: 1.1rem;
-            max-width: 600px;
+            color: var(--gray-600);
+            max-width: 700px;
             margin: 0 auto;
         }
         
-        /* Products Grid */
+        /* Products */
         .products {
-            background: var(--color-gray-100);
+            background: var(--gray-100);
         }
         
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
         
-        @media (max-width: 1024px) {
-            .products-grid { grid-template-columns: repeat(2, 1fr); }
-            .hero-content { grid-template-columns: 1fr; }
-        }
-        
-        @media (max-width: 640px) {
-            .products-grid { grid-template-columns: 1fr; }
-        }
-        
         .product-card {
-            background: var(--color-white);
-            border-radius: 16px;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             transition: transform 0.3s, box-shadow 0.3s;
         }
         
         .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(27, 51, 94, 0.15);
         }
         
         .product-image {
             height: 200px;
-            background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-white);
-            font-family: var(--font-display);
-            font-size: 2rem;
             position: relative;
             overflow: hidden;
         }
         
         .product-image img {
-            position: absolute;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.85;
         }
         
-        .product-image span {
-            position: relative;
-            z-index: 2;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        .product-image .product-label {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--navy);
+            color: var(--white);
+            padding: 0.375rem 0.75rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
         }
-        
-        .product-image.acrytech { background: linear-gradient(135deg, #00a651, #007a3d); }
-        .product-image.cushionx { background: linear-gradient(135deg, #0077c8, #005a99); }
-        .product-image.faultline { background: linear-gradient(135deg, #f7941d, #c77618); }
-        .product-image.rollx { background: linear-gradient(135deg, #e31937, #b3142c); }
         
         .product-content {
             padding: 1.5rem;
         }
         
-        .product-name {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            color: var(--color-primary);
-            margin-bottom: 0.5rem;
+        .product-content h3 {
+            font-size: 1.25rem;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
         }
         
-        .product-tagline {
-            color: var(--color-gray-600);
+        .product-content p {
+            color: var(--gray-600);
             font-size: 0.95rem;
             margin-bottom: 1rem;
         }
         
         .product-link {
-            color: var(--color-accent);
-            font-weight: 600;
+            color: var(--red);
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
         }
         
-        .product-link:hover { gap: 0.75rem; }
+        .product-link:hover { color: var(--red-dark); }
         
-        /* Why ATSports */
-        .why-us {
-            background: var(--color-primary);
-            color: var(--color-white);
+        /* Features */
+        .features {
+            background: var(--navy);
+            color: var(--white);
         }
         
-        .why-us .section-badge { background: var(--color-orange); }
-        .why-us .section-title { color: var(--color-white); }
-        .why-us .section-subtitle { color: rgba(255,255,255,0.7); }
+        .features .section-label {
+            background: var(--red);
+        }
+        
+        .features .section-title {
+            color: var(--white);
+        }
+        
+        .features .section-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
         
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-        }
-        
-        @media (max-width: 768px) {
-            .features-grid { grid-template-columns: 1fr; }
         }
         
         .feature-card {
             background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
             padding: 2rem;
         }
         
         .feature-icon {
             width: 60px;
             height: 60px;
-            background: var(--color-accent);
-            border-radius: 12px;
+            background: var(--red);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -403,20 +424,19 @@
             margin-bottom: 1.5rem;
         }
         
-        .feature-title {
-            font-weight: 700;
-            font-size: 1.25rem;
+        .feature-card h3 {
+            font-size: 1.1rem;
             margin-bottom: 0.75rem;
         }
         
-        .feature-desc {
+        .feature-card p {
             color: rgba(255,255,255,0.7);
             font-size: 0.95rem;
         }
         
         /* Installer Network */
-        .installer-network {
-            background: var(--color-gray-100);
+        .network {
+            background: var(--white);
         }
         
         .network-content {
@@ -426,17 +446,15 @@
             align-items: center;
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 968px) {
             .network-content { grid-template-columns: 1fr; }
         }
         
         .network-map {
-            background: var(--color-white);
-            border-radius: 16px;
+            background: var(--gray-100);
+            border: 2px solid var(--gray-200);
             aspect-ratio: 4/3;
             overflow: hidden;
-            border: 1px solid var(--color-gray-200);
-            position: relative;
         }
         
         .network-map iframe {
@@ -445,107 +463,97 @@
             border: none;
         }
         
-        .network-text h2 {
-            font-family: var(--font-display);
-            font-size: 2.25rem;
-            color: var(--color-primary);
-            margin-bottom: 1rem;
-        }
-        
-        .network-text p {
-            color: var(--color-gray-600);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-        
         .network-stats {
             display: flex;
             gap: 3rem;
-            margin-bottom: 2rem;
+            margin: 2rem 0;
         }
         
         .network-stat-value {
-            font-family: var(--font-display);
-            font-size: 2.5rem;
-            color: var(--color-accent);
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1;
         }
         
         .network-stat-label {
-            font-size: 0.85rem;
-            color: var(--color-gray-600);
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            text-transform: uppercase;
         }
         
-        /* Tools Section */
+        /* Tools */
         .tools {
-            background: var(--color-white);
+            background: var(--gray-100);
         }
         
         .tools-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
         }
         
-        @media (max-width: 768px) {
-            .tools-grid { grid-template-columns: 1fr; }
-        }
-        
         .tool-card {
-            background: var(--color-gray-100);
-            border-radius: 16px;
-            padding: 2rem;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            padding: 2.5rem;
             text-align: center;
-            transition: all 0.3s;
         }
-        
-        .tool-card:hover {
-            background: var(--color-primary);
-            color: var(--color-white);
-        }
-        
-        .tool-card:hover .tool-desc { color: rgba(255,255,255,0.7); }
-        .tool-card:hover .tool-link { color: var(--color-accent); }
         
         .tool-icon {
             font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tool-card h3 {
+            font-size: 1.5rem;
+            color: var(--navy);
             margin-bottom: 1rem;
         }
         
-        .tool-title {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-        
-        .tool-desc {
-            color: var(--color-gray-600);
-            font-size: 0.95rem;
+        .tool-card p {
+            color: var(--gray-600);
             margin-bottom: 1.5rem;
-            transition: color 0.3s;
-        }
-        
-        .tool-link {
-            color: var(--color-accent);
-            font-weight: 600;
-            text-decoration: none;
         }
         
         /* CTA */
         .cta {
-            background: linear-gradient(135deg, var(--color-accent), #007a3d);
-            color: var(--color-white);
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+            color: var(--white);
             text-align: center;
-            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 20px,
+                rgba(200, 16, 46, 0.05) 20px,
+                rgba(200, 16, 46, 0.05) 40px
+            );
+        }
+        
+        .cta .container {
+            position: relative;
+            z-index: 1;
         }
         
         .cta h2 {
-            font-family: var(--font-display);
             font-size: 2.5rem;
             margin-bottom: 1rem;
         }
         
         .cta p {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             opacity: 0.9;
             margin-bottom: 2rem;
             max-width: 600px;
@@ -553,361 +561,346 @@
             margin-right: auto;
         }
         
-        .cta .btn-primary {
-            background: var(--color-white);
-            color: var(--color-accent);
-        }
-        
-        .cta .btn-primary:hover {
-            background: var(--color-gray-100);
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         
         /* Footer */
         footer {
-            background: var(--color-primary);
-            color: var(--color-white);
+            background: var(--navy-dark);
+            color: var(--white);
             padding: 4rem 2rem 2rem;
         }
         
-        .footer-grid {
+        .footer-content {
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 3rem;
             margin-bottom: 3rem;
         }
         
-        @media (max-width: 768px) {
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-        }
-        
-        .footer-brand .logo {
-            color: var(--color-white);
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-        
-        .footer-brand p {
-            color: rgba(255,255,255,0.6);
-            font-size: 0.95rem;
-        }
-        
         .footer-col h4 {
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--color-white);
-        }
-        
-        .footer-col ul {
-            list-style: none;
-        }
-        
-        .footer-col li {
-            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
         }
         
         .footer-col a {
-            color: rgba(255,255,255,0.6);
+            display: block;
+            color: rgba(255,255,255,0.7);
             text-decoration: none;
+            margin-bottom: 0.75rem;
             font-size: 0.95rem;
             transition: color 0.2s;
         }
         
-        .footer-col a:hover { color: var(--color-accent); }
+        .footer-col a:hover { color: var(--orange); }
         
         .footer-bottom {
             max-width: 1400px;
             margin: 0 auto;
             padding-top: 2rem;
             border-top: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .footer-bottom p {
             color: rgba(255,255,255,0.5);
             font-size: 0.85rem;
+        }
+        
+        /* Mobile Nav */
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hero h1 { font-size: 2rem; }
+            .hero-stats { grid-template-columns: 1fr; gap: 1rem; }
+            .network-stats { flex-direction: column; gap: 1.5rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-inner">
-            <a href="/" class="logo">AT<span>Sports</span></a>
-            <nav>
-                <a href="#products">Products</a>
-                <a href="#installers">Find Installer</a>
-                <a href="#tools">Court Tools</a>
-                <a href="/about">About</a>
-                <a href="/contact" class="btn btn-primary">Get Started</a>
-            </nav>
-        </div>
-    </header>
-    
-    <!-- Hero -->
-    <section class="hero">
-        <div class="hero-content">
-            <div>
-                <div class="hero-badge">
-                    🏆 Official Court Surface of the PPA Tour
-                </div>
-                <h1>Premium <span>Sports Surfaces</span> That Perform</h1>
-                <p>Industry-leading coatings and court solutions trusted by professionals. From pickleball to tennis to basketball — surfaces that play as good as they look.</p>
-                <div class="hero-cta">
-                    <a href="#products" class="btn btn-primary">Explore Products →</a>
-                    <a href="#installers" class="btn btn-outline" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: #fff;">Find an Installer</a>
-                </div>
-            </div>
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="hero-stat-value">25+</div>
-                    <div class="hero-stat-label">Years of Excellence</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-value">1000s</div>
-                    <div class="hero-stat-label">Courts Surfaced</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-value">50</div>
-                    <div class="hero-stat-label">States Covered</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- PPA Banner -->
-    <div class="ppa-banner">
-        <p>🎾 The Official Court Surface Provider of the Professional Pickleball Association since 2006</p>
+
+<!-- Header -->
+<header>
+    <div class="top-bar">
+        🎾 The Official Court Surface Provider of the Professional Pickleball Association Since 2006
     </div>
-    
-    <!-- Products -->
-    <section class="products" id="products">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Our Products</span>
-                <h2 class="section-title">Solutions for Every Court Project</h2>
-                <p class="section-subtitle">Whether you're building new or restoring existing courts, our premium products deliver professional results.</p>
+    <div class="header-inner">
+        <a href="/" class="logo">
+            <img src="https://atsports.com/wp-content/uploads/2024/10/at-sports-sloagn-white@2x.png" alt="AT Sports">
+        </a>
+        <nav>
+            <a href="#products">Products</a>
+            <a href="#installers">Find Installer</a>
+            <a href="#tools">Tools</a>
+            <a href="/about">About</a>
+            <a href="/contact" class="btn btn-red">Contact Us</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-content">
+        <div>
+            <div class="hero-badge">
+                🏆 Official PPA Partner
             </div>
-            
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image acrytech">
-                        <img src="https://atsports.com/wp-content/uploads/2024/10/Australian-Courtworks_Westside-Tennis-Club_0-1024x683.jpg" alt="Acrytech court">
-                        <span>Acrytech</span>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-name">Acrytech</h3>
-                        <p class="product-tagline">Premium acrylic court coatings with superior durability and vibrant, long-lasting colors. Used on PPA Tour courts.</p>
-                        <a href="/products/acrytech" class="product-link">Learn More →</a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image cushionx">
-                        <img src="https://atsports.com/wp-content/uploads/2025/07/8-Fayetteville-Photos-Cushion-X-1.png" alt="CushionX surface">
-                        <span>CushionX</span>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-name">CushionX</h3>
-                        <p class="product-tagline">Premium cushioned surface system — 50% softer on joints, 40% faster to install.</p>
-                        <a href="/products/cushionx" class="product-link">Learn More →</a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image faultline">
-                        <img src="https://atsports.com/wp-content/uploads/2024/11/Screenshot-2024-07-25-at-7.23.59 PM.png" alt="Faultline repair">
-                        <span>Faultline</span>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-name">Faultline</h3>
-                        <p class="product-tagline">Professional crack repair system that prolongs court life and restores professional playing conditions.</p>
-                        <a href="/products/faultline" class="product-link">Learn More →</a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image rollx">
-                        <img src="https://atsports.com/wp-content/uploads/2024/11/PPA-LAS-VEGAS_VENUE-REVEAL-3.png" alt="RollX portable courts">
-                        <span>RollX</span>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-name">RollX</h3>
-                        <p class="product-tagline">Breakthrough portable surface technology — tournament-ready courts anywhere, anytime.</p>
-                        <a href="/products/rollx" class="product-link">Learn More →</a>
-                    </div>
-                </div>
+            <h1>Surfaces That <span>Perform.</span> Solutions That Go Further.</h1>
+            <p>Industry-leading coatings and court solutions trusted by professionals. From pickleball to tennis to basketball — surfaces that play as good as they look.</p>
+            <div class="hero-cta">
+                <a href="#products" class="btn btn-red">Explore Products →</a>
+                <a href="#installers" class="btn btn-outline">Find an Installer</a>
             </div>
         </div>
-    </section>
-    
-    <!-- Why ATSports -->
-    <section class="why-us">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Why AT Sports</span>
-                <h2 class="section-title">Trusted by Professionals Worldwide</h2>
-                <p class="section-subtitle">Decades of expertise, innovation, and commitment to quality make us the industry leader.</p>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-value">25+</div>
+                <div class="hero-stat-label">Years of Excellence</div>
             </div>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🏆</div>
-                    <h3 class="feature-title">PPA Official Partner</h3>
-                    <p class="feature-desc">The professional players trust our surfaces for competition. That same quality is available for your project.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🔬</div>
-                    <h3 class="feature-title">Made in USA</h3>
-                    <p class="feature-desc">All products manufactured domestically with rigorous quality control and environmental standards.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🤝</div>
-                    <h3 class="feature-title">Expert Support</h3>
-                    <p class="feature-desc">Technical guidance from project start to finish. We help you and your installer get it right.</p>
-                </div>
+            <div class="hero-stat">
+                <div class="hero-stat-value">1000s</div>
+                <div class="hero-stat-label">Courts Surfaced</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-value">50</div>
+                <div class="hero-stat-label">States Covered</div>
             </div>
         </div>
-    </section>
-    
-    <!-- Installer Network -->
-    <section class="installer-network" id="installers">
-        <div class="container">
-            <div class="network-content">
-                <div class="network-text">
-                    <span class="section-badge">Installer Network</span>
-                    <h2>Find a Certified Installer Near You</h2>
-                    <p>We partner with the best court builders across the country. Our network of trained professionals ensures your project is completed to the highest standards.</p>
-                    
-                    <div class="network-stats">
-                        <div>
-                            <div class="network-stat-value">200+</div>
-                            <div class="network-stat-label">Certified Installers</div>
-                        </div>
-                        <div>
-                            <div class="network-stat-value">50</div>
-                            <div class="network-stat-label">States</div>
-                        </div>
-                    </div>
-                    
-                    <a href="/find-an-installer" class="btn btn-primary">Find an Installer →</a>
-                </div>
-                
-                <div class="network-map">
-                    <iframe 
-                        src="https://bestsportssurfaces.com/locations?embed=true" 
-                        title="Find Certified Installers - Powered by BestSportsSurfaces.com"
-                        loading="lazy"
-                    ></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Court Designer Preview -->
-    <section class="court-designer-preview" id="designer" style="background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 100%); padding: 6rem 2rem;">
-        <div class="container">
-            <div class="section-header" style="margin-bottom: 3rem;">
-                <span class="section-badge" style="background: var(--color-orange);">Interactive Tool</span>
-                <h2 class="section-title" style="color: #fff;">Design Your Court with Acrytech Colors</h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.7);">32 official Acrytech colors. Tennis, pickleball, basketball. Download your design as PNG.</p>
-            </div>
-            
-            <div style="background: #111; border-radius: 16px; padding: 2rem; text-align: center;">
-                <img src="https://bestsportssurfaces.com/og-image.png" alt="Court Designer Preview" style="max-width: 100%; border-radius: 12px; margin-bottom: 2rem; border: 1px solid #333;">
-                <a href="court-designer.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
-                    🎨 Launch Court Designer →
-                </a>
-                <p style="color: rgba(255,255,255,0.5); margin-top: 1rem; font-size: 0.85rem;">All 32 official Acrytech colors • Download as PNG</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Tools -->
-    <section class="tools" id="tools">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Free Tools</span>
-                <h2 class="section-title">Plan Your Perfect Court</h2>
-                <p class="section-subtitle">Use our free tools to design, estimate, and plan your court project.</p>
-            </div>
-            
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <div class="tool-icon">🎨</div>
-                    <h3 class="tool-title">Court Designer</h3>
-                    <p class="tool-desc">Visualize your dream court with all 32 Acrytech colors and export PNG.</p>
-                    <a href="court-designer.html" class="tool-link">Design Your Court →</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">🧮</div>
-                    <h3 class="tool-title">Paint Calculator</h3>
-                    <p class="tool-desc">Get precise material estimates for your project — single court or multiple.</p>
-                    <a href="/paint-calculator" class="tool-link">Calculate Now →</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">💰</div>
-                    <h3 class="tool-title">Cost Estimator</h3>
-                    <p class="tool-desc">Budget planning made easy. Get ballpark costs for your court project.</p>
-                    <a href="https://bestsportssurfaces.com/cost-estimator" class="tool-link">Estimate Costs →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- CTA -->
-    <section class="cta">
-        <div class="container">
-            <h2>Ready to Build Your Perfect Court?</h2>
-            <p>Whether you're a homeowner, club, or municipality — we have the products and expertise to bring your vision to life.</p>
-            <a href="/contact" class="btn btn-primary">Get Started Today →</a>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <a href="/" class="logo">AT<span>Sports</span></a>
-                <p>Premium sports surface coatings and court solutions. The official court surface of the Professional Pickleball Association.</p>
-            </div>
-            
-            <div class="footer-col">
-                <h4>Products</h4>
-                <ul>
-                    <li><a href="/products/acrytech">Acrytech Coatings</a></li>
-                    <li><a href="/products/cushionx">CushionX System</a></li>
-                    <li><a href="/products/faultline">Faultline Repair</a></li>
-                    <li><a href="/products/rollx">RollX Portable</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-col">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="/court-designer">Court Designer</a></li>
-                    <li><a href="/paint-calculator">Paint Calculator</a></li>
-                    <li><a href="/find-an-installer">Find Installer</a></li>
-                    <li><a href="/blog">Blog</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-col">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                    <li><a href="/careers">Careers</a></li>
-                    <li><a href="/press">Press</a></li>
-                </ul>
-            </div>
+    </div>
+</section>
+
+<!-- Products -->
+<section class="products" id="products">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Our Products</span>
+            <h2 class="section-title">Products for Any Court Project</h2>
+            <p class="section-subtitle">Whether you're building new or restoring existing courts, our premium products deliver professional results.</p>
         </div>
         
-        <div class="footer-bottom">
-            <p>© 2026 AT Sports. All rights reserved. | Premium Sports Surface Solutions</p>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://atsports.com/wp-content/uploads/2024/10/Australian-Courtworks_Westside-Tennis-Club_0-1024x683.jpg" alt="Acrytech court">
+                    <span class="product-label">Acrytech</span>
+                </div>
+                <div class="product-content">
+                    <h3>Acrytech Sports Coatings</h3>
+                    <p>Premium acrylic court coatings with superior durability and vibrant, long-lasting colors. 32 official colors available.</p>
+                    <a href="/products/acrytech" class="product-link">Learn More →</a>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://atsports.com/wp-content/uploads/2024/08/GettyImages-1459387612-1024x683.jpg" alt="CushionX court">
+                    <span class="product-label">CushionX</span>
+                </div>
+                <div class="product-content">
+                    <h3>CushionX Surface System</h3>
+                    <p>Our premium cushion surface that is softer on the joints and quicker to install. Perfect for high-traffic courts.</p>
+                    <a href="/products/cushionx" class="product-link">Learn More →</a>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://atsports.com/wp-content/uploads/2024/08/GettyImages-1371143155-1024x683.jpg" alt="Faultline repair">
+                    <span class="product-label">Faultline</span>
+                </div>
+                <div class="product-content">
+                    <h3>Faultline Crack Repair</h3>
+                    <p>Our crack repair system helps prolong the life of your courts and returns them to excellent playing conditions.</p>
+                    <a href="/products/faultline" class="product-link">Learn More →</a>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://atsports.com/wp-content/uploads/2024/11/PPA-LAS-VEGAS_VENUE-REVEAL-3.png" alt="RollX portable courts">
+                    <span class="product-label">RollX</span>
+                </div>
+                <div class="product-content">
+                    <h3>RollX Portable Surfaces</h3>
+                    <p>Our breakthrough product that brings portability to sports surfaces. Set up professional courts anywhere.</p>
+                    <a href="/products/rollx" class="product-link">Learn More →</a>
+                </div>
+            </div>
         </div>
-    </footer>
+    </div>
+</section>
+
+<!-- Features -->
+<section class="features">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Why AT Sports</span>
+            <h2 class="section-title">Why Choose AT Sports?</h2>
+            <p class="section-subtitle">Backed by decades of expertise in sports surfacing materials and a passion for excellence.</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🏆</div>
+                <h3>PPA Official Partner</h3>
+                <p>The official court surface provider for the Professional Pickleball Association since 2006.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>32 Acrytech Colors</h3>
+                <p>Vibrant, long-lasting colors to match any design vision for tennis, pickleball, or basketball.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔧</div>
+                <h3>Full Product Line</h3>
+                <p>From coatings to crack repair to portable surfaces — complete solutions for any project.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h3>Nationwide Network</h3>
+                <p>200+ certified installers across all 50 states ready to bring your project to life.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📐</div>
+                <h3>Planning Tools</h3>
+                <p>Court designer and paint calculator to help you plan and estimate your project with precision.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💪</div>
+                <h3>25+ Years Experience</h3>
+                <p>Decades of expertise in sports surfacing materials with proven results on thousands of courts.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Installer Network -->
+<section class="network" id="installers">
+    <div class="container">
+        <div class="network-content">
+            <div>
+                <span class="section-label">Installer Network</span>
+                <h2 class="section-title">Find a Certified Installer Near You</h2>
+                <p style="color: var(--gray-600); margin-bottom: 1.5rem;">We partner with the best court builders across the country. Our network of trained professionals ensures your project is completed to the highest standards.</p>
+                
+                <div class="network-stats">
+                    <div>
+                        <div class="network-stat-value">200+</div>
+                        <div class="network-stat-label">Certified Installers</div>
+                    </div>
+                    <div>
+                        <div class="network-stat-value">50</div>
+                        <div class="network-stat-label">States</div>
+                    </div>
+                </div>
+                
+                <a href="/find-an-installer" class="btn btn-navy">Find an Installer →</a>
+            </div>
+            
+            <div class="network-map">
+                <iframe 
+                    src="https://bestsportssurfaces.com/locations?embed=true" 
+                    title="Find Certified Installers"
+                    loading="lazy"
+                ></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tools -->
+<section class="tools" id="tools">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Planning Tools</span>
+            <h2 class="section-title">Get Started On Your Project Today</h2>
+            <p class="section-subtitle">We manufacture premium coatings and sports surfacing products. Use our tools to plan your perfect court.</p>
+        </div>
+        
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-icon">🎨</div>
+                <h3>Court Designer</h3>
+                <p>Create the sports surface of your dreams with our interactive designer. All 32 Acrytech colors available.</p>
+                <a href="/court-designer" class="btn btn-navy">Design Your Court →</a>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-icon">🧮</div>
+                <h3>Paint Calculator</h3>
+                <p>Get precise material estimates tailored to your project, whether one court or multiple.</p>
+                <a href="/paint-calculator" class="btn btn-navy">Calculate Materials →</a>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-icon">💰</div>
+                <h3>Cost Estimator</h3>
+                <p>Estimate your project cost with our detailed calculator. Plan your budget with confidence.</p>
+                <a href="/cost-estimator" class="btn btn-navy">Estimate Cost →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <div class="container">
+        <h2>Ready to Start Your Project?</h2>
+        <p>Connect with our team or find a certified installer in your area to bring your court vision to life.</p>
+        <div class="cta-buttons">
+            <a href="/contact" class="btn btn-red">Contact Us →</a>
+            <a href="#installers" class="btn btn-outline">Find an Installer</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <img src="https://atsports.com/wp-content/uploads/2024/10/at-sports-sloagn-white@2x.png" alt="AT Sports" style="height: 40px; margin-bottom: 1rem;">
+            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Premium sports surface coatings and court solutions. Official court surface provider of the PPA.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Products</h4>
+            <a href="/products/acrytech">Acrytech</a>
+            <a href="/products/cushionx">CushionX</a>
+            <a href="/products/faultline">Faultline</a>
+            <a href="/products/rollx">RollX</a>
+        </div>
+        <div class="footer-col">
+            <h4>Resources</h4>
+            <a href="/court-designer">Court Designer</a>
+            <a href="/paint-calculator">Paint Calculator</a>
+            <a href="/cost-estimator">Cost Estimator</a>
+            <a href="/find-an-installer">Find an Installer</a>
+        </div>
+        <div class="footer-col">
+            <h4>Company</h4>
+            <a href="/about">About Us</a>
+            <a href="/contact">Contact</a>
+            <a href="/blog">News</a>
+            <a href="/careers">Careers</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 AT Sports. All rights reserved.</p>
+        <div>
+            <a href="/privacy" style="color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-right: 1.5rem;">Privacy Policy</a>
+            <a href="/terms" style="color: rgba(255,255,255,0.5); font-size: 0.85rem;">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+
 </body>
 </html>
