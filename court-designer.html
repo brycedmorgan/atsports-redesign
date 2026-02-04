@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Court Designer | AT Sports - Design with Acrytech Colors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Young+Serif&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a1628;
+            --secondary: #1e3a5f;
+            --accent: #00a651;
+            --white: #ffffff;
+            --gray-100: #f8fafc;
+            --gray-200: #e2e8f0;
+            --gray-600: #475569;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--primary); color: var(--white); min-height: 100vh; }
+        
+        header { background: rgba(255,255,255,0.95); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        .header-inner { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Young Serif', serif; font-size: 1.5rem; color: var(--primary); text-decoration: none; }
+        .logo span { color: var(--accent); }
+        .back-link { color: var(--gray-600); text-decoration: none; font-weight: 500; }
+        .back-link:hover { color: var(--accent); }
+        
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        
+        h1 { font-family: 'Young Serif', serif; font-size: 2rem; margin-bottom: 0.5rem; }
+        .subtitle { color: rgba(255,255,255,0.7); margin-bottom: 2rem; }
+        
+        .designer-grid { display: grid; grid-template-columns: 300px 1fr; gap: 2rem; }
+        @media (max-width: 900px) { .designer-grid { grid-template-columns: 1fr; } }
+        
+        .controls { background: var(--secondary); border-radius: 16px; padding: 1.5rem; }
+        .control-section { margin-bottom: 1.5rem; }
+        .control-label { font-weight: 600; font-size: 0.85rem; margin-bottom: 0.75rem; display: block; color: rgba(255,255,255,0.9); }
+        
+        .sport-buttons { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+        .sport-btn { background: rgba(255,255,255,0.1); border: 2px solid transparent; padding: 0.75rem; border-radius: 8px; cursor: pointer; text-align: center; transition: all 0.2s; color: var(--white); font-size: 0.85rem; }
+        .sport-btn:hover { background: rgba(255,255,255,0.15); }
+        .sport-btn.active { border-color: var(--accent); background: rgba(0,166,81,0.2); }
+        .sport-btn span { display: block; font-size: 1.5rem; margin-bottom: 0.25rem; }
+        
+        .color-section { margin-bottom: 1rem; }
+        .color-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+        .color-row label { font-size: 0.8rem; width: 70px; color: rgba(255,255,255,0.8); }
+        .color-preview { width: 36px; height: 36px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; }
+        .color-name { font-size: 0.75rem; color: rgba(255,255,255,0.6); flex: 1; }
+        
+        .palette-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; margin-top: 0.5rem; }
+        .swatch { width: 100%; aspect-ratio: 1; border-radius: 4px; cursor: pointer; border: 2px solid transparent; transition: all 0.15s; }
+        .swatch:hover { transform: scale(1.1); z-index: 1; }
+        .swatch.selected { border-color: var(--white); box-shadow: 0 0 0 2px var(--accent); }
+        
+        .preset-section { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .preset-btn { width: 100%; background: rgba(255,255,255,0.1); border: none; padding: 0.6rem; border-radius: 6px; cursor: pointer; color: var(--white); font-size: 0.8rem; margin-bottom: 0.5rem; text-align: left; transition: all 0.2s; }
+        .preset-btn:hover { background: rgba(255,255,255,0.15); }
+        
+        .preview-area { background: #111; border-radius: 16px; padding: 1.5rem; display: flex; flex-direction: column; }
+        .preview-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        .preview-title { font-weight: 600; }
+        .download-btn { background: var(--accent); color: var(--white); border: none; padding: 0.6rem 1.25rem; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: all 0.2s; }
+        .download-btn:hover { background: #00c962; }
+        
+        .canvas-container { flex: 1; display: flex; align-items: center; justify-content: center; min-height: 400px; }
+        #courtCanvas { background: #0a0a0a; border-radius: 8px; max-width: 100%; }
+        
+        .acrytech-credit { text-align: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .acrytech-credit img { height: 24px; opacity: 0.7; }
+        .acrytech-credit p { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 0.5rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">AT<span>Sports</span></a>
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <h1>🎨 Court Designer</h1>
+        <p class="subtitle">Design your court with all 32 official Acrytech colors. Download as PNG.</p>
+        
+        <div class="designer-grid">
+            <div class="controls">
+                <div class="control-section">
+                    <span class="control-label">Sport Type</span>
+                    <div class="sport-buttons">
+                        <button class="sport-btn active" data-sport="tennis"><span>🎾</span>Tennis</button>
+                        <button class="sport-btn" data-sport="pickleball"><span>🏓</span>Pickleball</button>
+                        <button class="sport-btn" data-sport="basketball"><span>🏀</span>Basketball</button>
+                        <button class="sport-btn" data-sport="multi"><span>🏅</span>Multi-Sport</button>
+                    </div>
+                </div>
+                
+                <div class="control-section">
+                    <span class="control-label">Colors</span>
+                    <div class="color-section">
+                        <div class="color-row">
+                            <label>Playing:</label>
+                            <div class="color-preview" id="playColor" style="background: #1a66b3;"></div>
+                            <span class="color-name" id="playColorName">Standard Blue</span>
+                        </div>
+                        <div class="color-row">
+                            <label>Surround:</label>
+                            <div class="color-preview" id="surroundColor" style="background: #2d6a4f;"></div>
+                            <span class="color-name" id="surroundColorName">Competition Green</span>
+                        </div>
+                        <div class="color-row">
+                            <label>Lines:</label>
+                            <div class="color-preview" id="lineColor" style="background: #ffffff;"></div>
+                            <span class="color-name" id="lineColorName">White</span>
+                        </div>
+                    </div>
+                    
+                    <span class="control-label" style="margin-top: 1rem;">Acrytech Palette</span>
+                    <div class="palette-grid" id="paletteGrid"></div>
+                </div>
+                
+                <div class="preset-section">
+                    <span class="control-label">Quick Presets</span>
+                    <button class="preset-btn" data-preset="ppa">🏆 PPA Tour (Blue/Green)</button>
+                    <button class="preset-btn" data-preset="usopen">🎾 US Open Blue</button>
+                    <button class="preset-btn" data-preset="clay">🟤 Classic Red/Green</button>
+                    <button class="preset-btn" data-preset="frost">❄️ Frost Blue/Gray</button>
+                </div>
+            </div>
+            
+            <div class="preview-area">
+                <div class="preview-header">
+                    <span class="preview-title">Preview</span>
+                    <button class="download-btn" id="downloadBtn">📥 Download PNG</button>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="courtCanvas" width="800" height="500"></canvas>
+                </div>
+                <div class="acrytech-credit">
+                    <p>Colors by <strong>Acrytech</strong> — Official Court Surface of the PPA Tour</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const ACRYTECH_COLORS = [
+            { name: 'Competition Green', hex: '#2d6a4f' },
+            { name: 'Performance Green', hex: '#3a8f5c' },
+            { name: 'Field Green', hex: '#4a7c3f' },
+            { name: 'Forest Green', hex: '#1b4332' },
+            { name: 'Irish Green', hex: '#009a44' },
+            { name: 'Kiwi', hex: '#7ab648' },
+            { name: 'Lime', hex: '#a4d65e' },
+            { name: 'Sea Green', hex: '#00a78e' },
+            { name: 'Light Blue', hex: '#6ba3d6' },
+            { name: 'Standard Blue', hex: '#1a66b3' },
+            { name: 'Competition Blue', hex: '#0d4f8b' },
+            { name: 'Frost Blue', hex: '#a0c4e8' },
+            { name: 'Sky Blue', hex: '#5bb7e8' },
+            { name: 'Caribbean Blue', hex: '#00a3b4' },
+            { name: 'Nautical Navy', hex: '#1c2951' },
+            { name: 'Sandstone', hex: '#c2a97e' },
+            { name: 'Beige', hex: '#d4c5a9' },
+            { name: 'Terracotta', hex: '#c1440e' },
+            { name: 'Orange', hex: '#e87722' },
+            { name: 'Bright Orange', hex: '#ff6900' },
+            { name: 'Classic Red', hex: '#b22234' },
+            { name: 'Crimson', hex: '#9b1b30' },
+            { name: 'Bright Red', hex: '#e03c31' },
+            { name: 'Coral', hex: '#ef6c5b' },
+            { name: 'Passion Pink', hex: '#e84393' },
+            { name: 'Bright Yellow', hex: '#ffd700' },
+            { name: 'Slate', hex: '#6b7b8d' },
+            { name: 'Gray', hex: '#8e9196' },
+            { name: 'Black', hex: '#1a1a1a' },
+            { name: 'Pro Purple', hex: '#6b3fa0' },
+            { name: 'Ultra Violet', hex: '#5f2580' },
+            { name: 'Viva Violet', hex: '#803ca0' },
+        ];
+        
+        const PRESETS = {
+            ppa: { play: '#1a66b3', surround: '#2d6a4f', line: '#ffffff', playName: 'Standard Blue', surroundName: 'Competition Green' },
+            usopen: { play: '#3a7fd5', surround: '#0d4f8b', line: '#ffffff', playName: 'US Open Blue', surroundName: 'Competition Blue' },
+            clay: { play: '#c1440e', surround: '#2d6a4f', line: '#ffffff', playName: 'Terracotta', surroundName: 'Competition Green' },
+            frost: { play: '#6ba3d6', surround: '#6b7b8d', line: '#ffffff', playName: 'Light Blue', surroundName: 'Slate' },
+        };
+        
+        const COURT_DIMS = {
+            tennis: { courtW: 36, courtL: 78, totalW: 60, totalL: 120 },
+            pickleball: { courtW: 20, courtL: 44, totalW: 34, totalL: 64 },
+            basketball: { courtW: 50, courtL: 94, totalW: 50, totalL: 94 },
+            multi: { courtW: 60, courtL: 120, totalW: 60, totalL: 120 },
+        };
+        
+        let state = {
+            sport: 'tennis',
+            playColor: '#1a66b3',
+            surroundColor: '#2d6a4f',
+            lineColor: '#ffffff',
+            activeColorTarget: null
+        };
+        
+        const canvas = document.getElementById('courtCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Build palette grid
+        const paletteGrid = document.getElementById('paletteGrid');
+        ACRYTECH_COLORS.forEach((color, i) => {
+            const swatch = document.createElement('div');
+            swatch.className = 'swatch';
+            swatch.style.background = color.hex;
+            swatch.title = color.name;
+            swatch.dataset.hex = color.hex;
+            swatch.dataset.name = color.name;
+            swatch.addEventListener('click', () => selectColor(color.hex, color.name));
+            paletteGrid.appendChild(swatch);
+        });
+        
+        // Color target selection
+        document.getElementById('playColor').addEventListener('click', () => setColorTarget('play'));
+        document.getElementById('surroundColor').addEventListener('click', () => setColorTarget('surround'));
+        document.getElementById('lineColor').addEventListener('click', () => setColorTarget('line'));
+        
+        function setColorTarget(target) {
+            state.activeColorTarget = target;
+            document.querySelectorAll('.color-preview').forEach(el => el.style.outline = 'none');
+            document.getElementById(target + 'Color').style.outline = '2px solid #00a651';
+        }
+        
+        function selectColor(hex, name) {
+            if (!state.activeColorTarget) state.activeColorTarget = 'play';
+            
+            if (state.activeColorTarget === 'play') {
+                state.playColor = hex;
+                document.getElementById('playColor').style.background = hex;
+                document.getElementById('playColorName').textContent = name;
+            } else if (state.activeColorTarget === 'surround') {
+                state.surroundColor = hex;
+                document.getElementById('surroundColor').style.background = hex;
+                document.getElementById('surroundColorName').textContent = name;
+            } else if (state.activeColorTarget === 'line') {
+                state.lineColor = hex;
+                document.getElementById('lineColor').style.background = hex;
+                document.getElementById('lineColorName').textContent = name;
+            }
+            
+            drawCourt();
+        }
+        
+        // Sport buttons
+        document.querySelectorAll('.sport-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.sport-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                state.sport = btn.dataset.sport;
+                drawCourt();
+            });
+        });
+        
+        // Presets
+        document.querySelectorAll('.preset-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const preset = PRESETS[btn.dataset.preset];
+                state.playColor = preset.play;
+                state.surroundColor = preset.surround;
+                state.lineColor = preset.line;
+                document.getElementById('playColor').style.background = preset.play;
+                document.getElementById('surroundColor').style.background = preset.surround;
+                document.getElementById('lineColor').style.background = preset.line;
+                document.getElementById('playColorName').textContent = preset.playName;
+                document.getElementById('surroundColorName').textContent = preset.surroundName;
+                document.getElementById('lineColorName').textContent = 'White';
+                drawCourt();
+            });
+        });
+        
+        // Download
+        document.getElementById('downloadBtn').addEventListener('click', () => {
+            const link = document.createElement('a');
+            link.download = `atsports-court-${state.sport}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        });
+        
+        function drawCourt() {
+            const dims = COURT_DIMS[state.sport];
+            const padding = 40;
+            const scale = Math.min((canvas.width - padding * 2) / dims.totalW, (canvas.height - padding * 2) / dims.totalL);
+            const offX = (canvas.width - dims.totalW * scale) / 2;
+            const offY = (canvas.height - dims.totalL * scale) / 2;
+            
+            // Clear
+            ctx.fillStyle = '#0a0a0a';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Surround
+            ctx.fillStyle = state.surroundColor;
+            ctx.fillRect(offX, offY, dims.totalW * scale, dims.totalL * scale);
+            
+            // Playing area
+            const courtOffX = offX + ((dims.totalW - dims.courtW) / 2) * scale;
+            const courtOffY = offY + ((dims.totalL - dims.courtL) / 2) * scale;
+            ctx.fillStyle = state.playColor;
+            ctx.fillRect(courtOffX, courtOffY, dims.courtW * scale, dims.courtL * scale);
+            
+            // Draw lines based on sport
+            ctx.strokeStyle = state.lineColor;
+            ctx.lineWidth = 2;
+            
+            const cx = canvas.width / 2;
+            const cy = canvas.height / 2;
+            const hw = (dims.courtW * scale) / 2;
+            const hl = (dims.courtL * scale) / 2;
+            
+            // Court outline
+            ctx.strokeRect(courtOffX, courtOffY, dims.courtW * scale, dims.courtL * scale);
+            
+            if (state.sport === 'tennis') {
+                // Tennis court lines
+                const singlesW = (27 * scale) / 2;
+                const serviceDist = 21 * scale;
+                
+                // Singles lines
+                ctx.beginPath();
+                ctx.moveTo(cx - singlesW, cy - hl);
+                ctx.lineTo(cx - singlesW, cy + hl);
+                ctx.moveTo(cx + singlesW, cy - hl);
+                ctx.lineTo(cx + singlesW, cy + hl);
+                ctx.stroke();
+                
+                // Net
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.moveTo(cx - hw, cy);
+                ctx.lineTo(cx + hw, cy);
+                ctx.stroke();
+                ctx.lineWidth = 2;
+                
+                // Service lines
+                ctx.beginPath();
+                ctx.moveTo(cx - singlesW, cy - serviceDist);
+                ctx.lineTo(cx + singlesW, cy - serviceDist);
+                ctx.moveTo(cx - singlesW, cy + serviceDist);
+                ctx.lineTo(cx + singlesW, cy + serviceDist);
+                ctx.stroke();
+                
+                // Center service line
+                ctx.beginPath();
+                ctx.moveTo(cx, cy - serviceDist);
+                ctx.lineTo(cx, cy + serviceDist);
+                ctx.stroke();
+                
+            } else if (state.sport === 'pickleball') {
+                // Pickleball lines
+                const kitchen = 7 * scale;
+                
+                // Net
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.moveTo(cx - hw, cy);
+                ctx.lineTo(cx + hw, cy);
+                ctx.stroke();
+                ctx.lineWidth = 2;
+                
+                // Kitchen lines
+                ctx.setLineDash([6, 4]);
+                ctx.beginPath();
+                ctx.moveTo(cx - hw, cy - kitchen);
+                ctx.lineTo(cx + hw, cy - kitchen);
+                ctx.moveTo(cx - hw, cy + kitchen);
+                ctx.lineTo(cx + hw, cy + kitchen);
+                ctx.stroke();
+                ctx.setLineDash([]);
+                
+                // Center lines
+                ctx.beginPath();
+                ctx.moveTo(cx, cy - hl);
+                ctx.lineTo(cx, cy - kitchen);
+                ctx.moveTo(cx, cy + hl);
+                ctx.lineTo(cx, cy + kitchen);
+                ctx.stroke();
+                
+            } else if (state.sport === 'basketball') {
+                // Basketball court lines
+                // Center circle
+                ctx.beginPath();
+                ctx.arc(cx, cy, 6 * scale, 0, Math.PI * 2);
+                ctx.stroke();
+                
+                // Center line
+                ctx.beginPath();
+                ctx.moveTo(cx - hw, cy);
+                ctx.lineTo(cx + hw, cy);
+                ctx.stroke();
+                
+                // Free throw areas (simplified)
+                const ftWidth = 12 * scale;
+                const ftDepth = 19 * scale;
+                
+                // Top
+                ctx.strokeRect(cx - ftWidth / 2, cy - hl, ftWidth, ftDepth);
+                ctx.beginPath();
+                ctx.arc(cx, cy - hl + ftDepth, ftWidth / 2, 0, Math.PI);
+                ctx.stroke();
+                
+                // Bottom
+                ctx.strokeRect(cx - ftWidth / 2, cy + hl - ftDepth, ftWidth, ftDepth);
+                ctx.beginPath();
+                ctx.arc(cx, cy + hl - ftDepth, ftWidth / 2, Math.PI, Math.PI * 2);
+                ctx.stroke();
+                
+                // Three-point arcs (simplified)
+                ctx.beginPath();
+                ctx.arc(cx, cy - hl + 5.25 * scale, 23.75 * scale, 0.3, Math.PI - 0.3);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.arc(cx, cy + hl - 5.25 * scale, 23.75 * scale, Math.PI + 0.3, -0.3);
+                ctx.stroke();
+                
+            } else if (state.sport === 'multi') {
+                // Multi-sport - just outline with center line
+                ctx.beginPath();
+                ctx.moveTo(cx - hw, cy);
+                ctx.lineTo(cx + hw, cy);
+                ctx.stroke();
+            }
+            
+            // Add watermark
+            ctx.fillStyle = 'rgba(255,255,255,0.3)';
+            ctx.font = '12px Inter, sans-serif';
+            ctx.textAlign = 'right';
+            ctx.fillText('Designed with Acrytech Colors | ATSports.com', canvas.width - 20, canvas.height - 15);
+        }
+        
+        // Initial draw
+        setColorTarget('play');
+        drawCourt();
+    </script>
+</body>
+</html>
