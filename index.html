@@ -128,8 +128,8 @@
             right: 0;
             width: 60%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=1200') center/cover;
-            opacity: 0.15;
+            background: url('https://atsports.com/wp-content/uploads/2025/04/AO_DRONE_SUNDAY-2-768x575.jpg') center/cover;
+            opacity: 0.2;
             mask-image: linear-gradient(to left, black 0%, transparent 100%);
             -webkit-mask-image: linear-gradient(to left, black 0%, transparent 100%);
         }
@@ -312,6 +312,22 @@
             color: var(--color-white);
             font-family: var(--font-display);
             font-size: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+        }
+        
+        .product-image span {
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
         }
         
         .product-image.acrytech { background: linear-gradient(135deg, #00a651, #007a3d); }
@@ -669,37 +685,49 @@
             
             <div class="products-grid">
                 <div class="product-card">
-                    <div class="product-image acrytech">Acrytech</div>
+                    <div class="product-image acrytech">
+                        <img src="https://atsports.com/wp-content/uploads/2024/10/Australian-Courtworks_Westside-Tennis-Club_0-1024x683.jpg" alt="Acrytech court">
+                        <span>Acrytech</span>
+                    </div>
                     <div class="product-content">
                         <h3 class="product-name">Acrytech</h3>
-                        <p class="product-tagline">Premium acrylic court coatings with superior durability and vibrant, long-lasting colors.</p>
+                        <p class="product-tagline">Premium acrylic court coatings with superior durability and vibrant, long-lasting colors. Used on PPA Tour courts.</p>
                         <a href="/products/acrytech" class="product-link">Learn More →</a>
                     </div>
                 </div>
                 
                 <div class="product-card">
-                    <div class="product-image cushionx">CushionX</div>
+                    <div class="product-image cushionx">
+                        <img src="https://atsports.com/wp-content/uploads/2025/07/8-Fayetteville-Photos-Cushion-X-1.png" alt="CushionX surface">
+                        <span>CushionX</span>
+                    </div>
                     <div class="product-content">
                         <h3 class="product-name">CushionX</h3>
-                        <p class="product-tagline">Premium cushioned surface system — softer on joints, faster to install.</p>
+                        <p class="product-tagline">Premium cushioned surface system — 50% softer on joints, 40% faster to install.</p>
                         <a href="/products/cushionx" class="product-link">Learn More →</a>
                     </div>
                 </div>
                 
                 <div class="product-card">
-                    <div class="product-image faultline">Faultline</div>
+                    <div class="product-image faultline">
+                        <img src="https://atsports.com/wp-content/uploads/2024/11/Screenshot-2024-07-25-at-7.23.59 PM.png" alt="Faultline repair">
+                        <span>Faultline</span>
+                    </div>
                     <div class="product-content">
                         <h3 class="product-name">Faultline</h3>
-                        <p class="product-tagline">Professional crack repair system that prolongs court life and restores playing conditions.</p>
+                        <p class="product-tagline">Professional crack repair system that prolongs court life and restores professional playing conditions.</p>
                         <a href="/products/faultline" class="product-link">Learn More →</a>
                     </div>
                 </div>
                 
                 <div class="product-card">
-                    <div class="product-image rollx">RollX</div>
+                    <div class="product-image rollx">
+                        <img src="https://atsports.com/wp-content/uploads/2024/11/PPA-LAS-VEGAS_VENUE-REVEAL-3.png" alt="RollX portable courts">
+                        <span>RollX</span>
+                    </div>
                     <div class="product-content">
                         <h3 class="product-name">RollX</h3>
-                        <p class="product-tagline">Breakthrough portable surface technology for temporary and convertible courts.</p>
+                        <p class="product-tagline">Breakthrough portable surface technology — tournament-ready courts anywhere, anytime.</p>
                         <a href="/products/rollx" class="product-link">Learn More →</a>
                     </div>
                 </div>
@@ -768,6 +796,25 @@
         </div>
     </section>
     
+    <!-- Court Designer Preview -->
+    <section class="court-designer-preview" id="designer" style="background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 100%); padding: 6rem 2rem;">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 3rem;">
+                <span class="section-badge" style="background: var(--color-orange);">Interactive Tool</span>
+                <h2 class="section-title" style="color: #fff;">Design Your Court with Acrytech Colors</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.7);">32 official Acrytech colors. Tennis, pickleball, basketball. Download your design as PNG.</p>
+            </div>
+            
+            <div style="background: #111; border-radius: 16px; padding: 2rem; text-align: center;">
+                <img src="https://bestsportssurfaces.com/og-image.png" alt="Court Designer Preview" style="max-width: 100%; border-radius: 12px; margin-bottom: 2rem; border: 1px solid #333;">
+                <a href="https://bestsportssurfaces.com/court-designer" target="_blank" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
+                    🎨 Launch Court Designer →
+                </a>
+                <p style="color: rgba(255,255,255,0.5); margin-top: 1rem; font-size: 0.85rem;">Powered by BestSportsSurfaces.com • All 32 Acrytech colors included</p>
+            </div>
+        </div>
+    </section>
+    
     <!-- Tools -->
     <section class="tools" id="tools">
         <div class="container">
@@ -781,8 +828,8 @@
                 <div class="tool-card">
                     <div class="tool-icon">🎨</div>
                     <h3 class="tool-title">Court Designer</h3>
-                    <p class="tool-desc">Visualize your dream court with custom colors, layouts, and configurations.</p>
-                    <a href="/court-designer" class="tool-link">Design Your Court →</a>
+                    <p class="tool-desc">Visualize your dream court with all 32 Acrytech colors and export PNG.</p>
+                    <a href="https://bestsportssurfaces.com/court-designer" class="tool-link">Design Your Court →</a>
                 </div>
                 
                 <div class="tool-card">
@@ -796,7 +843,7 @@
                     <div class="tool-icon">💰</div>
                     <h3 class="tool-title">Cost Estimator</h3>
                     <p class="tool-desc">Budget planning made easy. Get ballpark costs for your court project.</p>
-                    <a href="/cost-estimator" class="tool-link">Estimate Costs →</a>
+                    <a href="https://bestsportssurfaces.com/cost-estimator" class="tool-link">Estimate Costs →</a>
                 </div>
             </div>
         </div>
